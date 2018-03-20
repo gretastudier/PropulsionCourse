@@ -9,11 +9,8 @@ data = pd.DataFrame(columns = ['Planet', 'Propellant', 'VelCirc', 'VelEllipt', '
 #---USER INPUTS----------------------------------------------------------------------------------------------------
 
 planet = 'Mars'
-
 payloadMass = 1063.00 #kg
-
 ISP = 300
-
 fIntert = 0.09
 
 # [1] for Star 48/Star 37
@@ -127,9 +124,17 @@ def PropMass(rho,m_pay,finert,l,c,b):
     data.loc[0, 'CaseRadius'] = "%.2f" % C
     data.loc[0, 'BoreRadius'] = "%.2f" % B
 
-Planet(planet)
-Propellant(propellant)
-Velocity()
-PropMass(rho,payloadMass,fIntert,length,caseradius,boreradius)
-print data
+# Planet(planet)
+# Propellant(propellant)
+# Velocity()
+# PropMass(rho,payloadMass,fIntert,length,caseradius,boreradius)
+
+def Outputs():
+    Planet(planet)
+    Propellant(propellant)
+    Velocity()
+    PropMass(rho,payloadMass,fIntert,length,caseradius,boreradius)
+    print data
+Outputs()
+print type(data)
 
