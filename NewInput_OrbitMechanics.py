@@ -8,7 +8,7 @@ import pandas as pd
 data = pd.DataFrame(columns = ['Planet', 'Propellant', 'VelCirc', 'VelEllipt', 'DeltaV', 'PropMass', 'Length' ,'CaseRadius', 'BoreRadius'])
 #---USER INPUTS----------------------------------------------------------------------------------------------------
 
-planet = 'Mars'
+planet = 'Neptune'
 payloadMass = 1063.00 #kg
 ISP = 300
 fIntert = 0.09
@@ -26,39 +26,22 @@ boreradius = 0.2344
 
 #---FUNCTIONS----------------------------------------------------------------------------------------------------
 def Planet(Planet):
-    loop = True
-    while loop:
-        if Planet == 'Mars' or Planet == 'mars':
-            aphelion = 228000000.0
+    aps = {'mars': 228000000.0,
+       'mercury': 57909050.0,
+       'venus': 108900000.0,
+       'jupiter': 817000000.0,
+       'saturn': 1500000000.0,
+       'uranus': 3006900000.0,
+       'neptune': 4547800000.0}
+
+    while True:
+        if Planet.lower() in aps:
+            aphelion = aps[Planet.lower()]
             data.loc[0, 'Planet'] = Planet
-            loop = False
-        elif Planet == 'Mercury' or Planet == 'mercury':
-            aphelion = 57909050.0
-            data.loc[0, 'Planet'] = Planet
-            loop = False
-        elif Planet == 'Venus' or Planet == 'venus':
-            aphelion = 108900000.0
-            data.loc[0, 'Planet'] = Planet
-            loop = False
-        elif Planet == 'Jupiter' or Planet == 'jupiter':
-            aphelion = 817000000.0
-            data.loc[0, 'Planet'] = Planet
-            loop = False
-        elif Planet == 'Saturn' or Planet == 'saturn':
-            aphelion = 1500000000.0
-            data.loc[0, 'Planet'] = Planet
-            loop = False
-        elif Planet == 'Uranus' or Planet == 'uranus':
-            aphelion = 3006900000.0
-            data.loc[0, 'Planet'] = Planet
-            loop = False
-        elif Planet == 'Neptune' or Planet == 'neptune':
-            aphelion = 4547800000.0
-            data.loc[0, 'Planet'] = Planet
-            loop = False
+            break
         else:
             print 'Sorry that\'s not a planet! '
-        return aphelion
+    return aphelion
 
 def Propellant(Propellant):
     loop = True
