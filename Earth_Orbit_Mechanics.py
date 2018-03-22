@@ -13,39 +13,21 @@ data = pd.DataFrame(columns = ['Planet', 'Propellant', 'VelCirc', 'VelEllipt', '
 perihelion = 149599650.0 #km for Sun to Earth
 
 #Get Planet and aphelion distance for calculating velocity
-loop = True
-while loop:
+aps = {'mars': 228000000.0,
+       'mercury': 57909050.0,
+       'venus': 108900000.0,
+       'jupiter': 817000000.0,
+       'saturn': 1500000000.0,
+       'uranus': 3006900000.0,
+       'neptune': 4547800000.0}
+
+while True:
     choice = raw_input("Please enter planet you wish to travel to: ")
     #choice = 'mars'
-    if choice == 'Mars' or choice == 'mars':
-        aphelion = 228000000.0
-        #print 'Planet: ', choice
+    if choice.lower() in aps:
+        aphelion = aps[choice.lower()]
         data.loc[0,'Planet'] = choice
-        loop=False
-    elif choice == 'Mercury' or choice == 'mercury':
-        aphelion = 57909050.0
-        data.loc[0, 'Planet'] = choice
-        loop = False
-    elif choice == 'Venus' or choice == 'venus':
-        aphelion = 108900000.0
-        data.loc[0, 'Planet'] = choice
-        loop = False
-    elif choice == 'Jupiter' or choice == 'jupiter':
-        aphelion = 817000000.0
-        data.loc[0, 'Planet'] = choice
-        loop = False
-    elif choice == 'Saturn' or choice == 'saturn':
-        aphelion = 1500000000.0
-        data.loc[0, 'Planet'] = choice
-        loop = False
-    elif choice == 'Uranus' or choice == 'uranus':
-        aphelion = 3006900000.0
-        data.loc[0, 'Planet'] = choice
-        loop = False
-    elif choice == 'Neptune' or choice == 'neptune':
-        aphelion = 4547800000.0
-        data.loc[0, 'Planet'] = choice
-        loop = False
+        break
     else:
         print 'Sorry that\'s not a planet! '
 

@@ -124,10 +124,10 @@ def PropMass(rho,m_pay,finert,l,c,b):
     data.loc[0, 'CaseRadius'] = "%.2f" % C
     data.loc[0, 'BoreRadius'] = "%.2f" % B
 
-# Planet(planet)
-# Propellant(propellant)
-# Velocity()
-# PropMass(rho,payloadMass,fIntert,length,caseradius,boreradius)
+def Pressure(rho):
+    press = ((a*rho*Ab*c_star)/(At))**(1/(1-n))
+    burnrate = a*press**n
+
 
 def Outputs():
     Planet(planet)
@@ -136,5 +136,4 @@ def Outputs():
     PropMass(rho,payloadMass,fIntert,length,caseradius,boreradius)
     print data
 Outputs()
-print type(data)
 
