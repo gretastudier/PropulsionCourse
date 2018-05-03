@@ -8,7 +8,7 @@ import pandas as pd
 data = pd.DataFrame(columns = ['Planet', 'Propellant', 'VelCirc', 'VelEllipt', 'DeltaV', 'PropMass', 'Length' ,'CaseRadius', 'BoreRadius'])
 #---USER INPUTS----------------------------------------------------------------------------------------------------
 
-planet = 'Neptune'
+planet = 'Mars'
 payloadMass = 1063.00 #kg
 ISP = 300
 fIntert = 0.09
